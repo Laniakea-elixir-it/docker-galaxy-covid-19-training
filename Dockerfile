@@ -6,7 +6,8 @@ MAINTAINER Pietro Mandreoli, pietro.mandreoli@unimi.it
 
 ENV GALAXY_CONFIG_BRAND="Covid-19-genomics"
 
-RUN wget https://raw.githubusercontent.com/indigo-dc/Reference-data-galaxycloud-repository/master/elixir-italy.covacs.refdata/location/tool_data_table_conf.xml -O /etc/galaxy/tool_data_table_conf.xml
+#tool data table for covacs flavour
+#RUN wget https://raw.githubusercontent.com/indigo-dc/Reference-data-galaxycloud-repository/master/elixir-italy.covacs.refdata/location/tool_data_table_conf.xml -O /etc/galaxy/tool_data_table_conf.xml
 
 WORKDIR /galaxy-central
 
