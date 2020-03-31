@@ -12,11 +12,13 @@ ENV GALAXY_CONFIG_BRAND="Covid-19-genomics"
 WORKDIR /galaxy-central
 
 RUN add-tool-shed --url 'http://testtoolshed.g2.bx.psu.edu/' --name 'Test Tool Shed'
+RUN rm $GALAXY_ROOT/all_covid_tools.yaml
 RUN wget https://raw.githubusercontent.com/galaxyproject/SARS-CoV-2/master/genomics/deploy/all_covid_tools.yaml -O $GALAXY_ROOT/all_covid_tools.yaml
 
 RUN install-tools $GALAXY_ROOT/all_covid_tools.yaml -a admin -g http://localhost:8080
 
 # Install workflows
+RUN rm -rf $GALAXY_HOME/workflows
 RUN mkdir -p $GALAXY_HOME/workflows
 
 RUN git clone https://github.com/galaxyproject/SARS-CoV-2.git
